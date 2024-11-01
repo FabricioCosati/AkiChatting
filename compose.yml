@@ -1,0 +1,12 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - DEFAULT_USER=${RABBITMQ_USER}
+      - DEFAULT_PASS=${RABBITMQ_PASSWORD}
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
